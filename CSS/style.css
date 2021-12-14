@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Libre Franklin', sans-serif;
+}
+
+body{
+    background: black;
+}
+
+.flex{
+    display: flex;
+    gap: var(--gap, 2rem);
+}
+
+nav{
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+/*primary-header*/
+
+.primary-header{
+    align-items: center;
+    justify-content: space-between;
+    background: transparent;
+}
+
+.logo{
+    margin: 2rem;
+    color: whitesmoke;
+}
+
+.nav-toggle{
+    display: none;
+}
+
+/*primary-navigation*/
+
+.primary-navigation{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.primary-navigation a{
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+.primary-navigation span{
+    font-weight: 700;
+    margin-inline-end: .75em;
+}
+
+
+
+@media (max-width: 35em){
+    .primary-navigation{
+        z-index: 1000;
+        gap: 4em;
+        position: fixed;
+        inset: 0 0 0 30%;
+        flex-direction: column;
+        padding: min(30vh, 10rem) 2rem;
+        background-color: rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(10px) saturate(100%) contrast(45%) brightness(130%);
+        transform: translateX(100%);
+        transition: transform 350ms ease-in;
+    }
+
+    .primary-navigation a{
+        text-decoration: none;
+        color: black;
+        font-size: 16px;
+    }
+
+    .primary-navigation[data-visible="true"]{
+        transform: translateX(0%);
+    }
+
+    .nav-toggle{
+        display: block;
+        position: absolute;
+        width: 2rem;
+        aspect-ratio: 1;
+        background: url(menu.svg);
+        border: none;
+        top: 2rem;
+        right: 2rem;
+        z-index: 9999;
+    }
+}
+
+/*First Section*/
+
+.first{
+    min-height: 100vh;
+    background: url(girl.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.content{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.content h1{
+    font-size: 65px;
+    color: whitesmoke
+}
+
+.content h2{
+    font-size: 35px;
+    color: whitesmoke;
+}
+
+@media (max-width: 35em){
+    .content h1{
+        font-size: 45px;
+        color: whitesmoke
+    }
+    
+    .content h2{
+        font-size: 25px;
+        color: whitesmoke;
+    }
+}
